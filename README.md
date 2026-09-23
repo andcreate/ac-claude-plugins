@@ -24,18 +24,36 @@ ac-frontend/
 └── README.md
 ```
 
-| プラグイン | ソース | 中身 |
-| :-- | :-- | :-- |
-| `web-bundle` | `./plugins/web-bundle` | 下記の外部プラグインへの依存だけを宣言 |
-| `frontend-design` | `git-subdir`（anthropics/claude-code の `plugins/frontend-design`） | Anthropic 公式のスキル。中身はこのリポジトリに置かない |
+`web-bundle` は下表の外部プラグインへの依存だけを宣言しています。外部プラグインの中身はこのリポジトリに置かず、`marketplace.json` のエントリから commit 固定で参照します。
+
+| プラグイン | 参照先 | ソース | 入るスキル・コマンド | ライセンス |
+| :-- | :-- | :-- | :-- | :-- |
+| `ui-ux-pro-max` | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `url`（リポジトリ全体） | ui-ux-pro-max, design, design-system, ui-styling, brand, banner-design, slides | MIT |
+| `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `url`（リポジトリ全体） | taste-skill, taste-skill-v1, gpt-tasteskill, brutalist-skill, minimalist-skill, soft-skill, redesign-skill, stitch-skill, image-to-code-skill, imagegen-frontend-web, imagegen-frontend-mobile, brandkit, output-skill | MIT |
+| `frontend-design` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) `skills/frontend-design` | `git-subdir` | frontend-design | Apache-2.0 |
+| `web-artifacts-builder` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder) `skills/web-artifacts-builder` | `git-subdir` | web-artifacts-builder | Apache-2.0 |
+| `brand-guidelines` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/brand-guidelines) `skills/brand-guidelines` | `git-subdir` | brand-guidelines | Apache-2.0 |
+| `transitions-dev` | [Jakubantalik/transitions.dev](https://github.com/Jakubantalik/transitions.dev) | `url`（リポジトリ全体） | transitions-dev, transitions-polish | 表記なし |
+| `apple-design` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/apple-design) `skills/apple-design` | `git-subdir` | apple-design | MIT |
+| `emil-design-eng` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng) `skills/emil-design-eng` | `git-subdir` | emil-design-eng | MIT |
+| `web-quality-skills` | [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills) | `url`（リポジトリ全体） | accessibility, best-practices, core-web-vitals, performance, seo, web-quality-audit | MIT |
+| `design-review` | [Superfuture/design-review](https://github.com/Superfuture/design-review) `design-review` | `git-subdir` | design-review、コマンド activate | MIT（plugin.json の記載） |
+
+ソースの選び方:
+
+- 上流がリポジトリ直下をプラグインとして配布している（`.claude-plugin/plugin.json` がある）ものは、リポジトリ全体を `url` ソースで参照する。上流の `plugin.json` がそのまま使われる。
+- スキルのフォルダ単体のもの（anthropics/skills、emilkowalski/skills）は、`git-subdir` でそのフォルダだけを取る。`plugin.json` がないフォルダは、直下の `SKILL.md` が 1 つのスキルとして読み込まれる。
+- transitions.dev は `plugin.json` がないが、`transitions-polish` が `../transitions-dev` を参照するため、2 つを並べたまま取れるようリポジトリ全体を参照する（直下の `skills/` が自動で読み込まれる）。
+- GitHub のリポジトリでも `github` ソースではなく HTTPS の `url` ソースを使っている。`github` ソースは既定で SSH clone になり、SSH 鍵の設定に左右されるため。
 
 `archive/plugins/` には、最初に雛形として作った `web-frontend`（Next.js 向け）と `headless-wp`（Headless WordPress 向け）を退役させて置いています。戻すときは `plugins/` に移し、`marketplace.json` にエントリを、`web-bundle` の `dependencies` に名前を足します。
 
 ### 依存関係の仕組み
 
 - `web-bundle` の `plugin.json` にある `dependencies` は、プラグイン名だけで書いています。名前は **同じマーケットプレイス（ac-frontend）の中で** 解決されます。
-- `frontend-design` は外部リポジトリのプラグインですが、ac-frontend の `marketplace.json` にエントリを置いています。これで依存解決が ac-frontend の中で閉じるので、`allowCrossMarketplaceDependenciesOn` は要りません。
-- `frontend-design` は `sha` で commit を固定しています。取り込み時点は `56f36532530f88b572854538d685fcf781141e8c`（anthropics/claude-code の main、2026-09-22）です。更新手順は後述します。
+- 依存先はすべて外部リポジトリのプラグインですが、ac-frontend の `marketplace.json` にエントリを置いています。これで依存解決が ac-frontend の中で閉じるので、`allowCrossMarketplaceDependenciesOn` は要りません。
+- 外部プラグインはすべて `sha` で commit を固定しています（2026-09-23 時点の各リポジトリの main）。更新手順は後述します。
+- 外部プラグインのエントリには `version` を書きません。上流に `plugin.json` の `version` があればそれが、なければ commit sha がバージョンになります。
 
 ### バージョンの置き場所
 
@@ -109,36 +127,59 @@ ac-frontend/
 
 ### 外部のプラグインを参照で追加する
 
-中身をコピーせず、`marketplace.json` のエントリで外部リポジトリを参照します。`frontend-design` と同じ形です。
+中身をコピーせず、`marketplace.json` のエントリで外部リポジトリを参照します。
 
-```json
-{
-  "name": "<plugin-name>",
-  "source": {
-    "source": "git-subdir",
-    "url": "https://github.com/<owner>/<repo>.git",
-    "path": "plugins/<plugin-name>",
-    "ref": "main",
-    "sha": "<40 桁の commit sha>"
-  },
-  "description": "説明"
-}
-```
+1. 上流の構造を確かめる。`.claude-plugin/plugin.json` の場所、`SKILL.md` の場所、スキルがフォルダ外（`../` など）を参照していないか、ライセンス。
+2. 構造に合うソースでエントリを書く。
 
-- リポジトリ直下がプラグインなら `"source": "github", "repo": "<owner>/<repo>"` を使う。
-- `sha` は次のコマンドで調べる。
+   リポジトリ直下がプラグイン（`.claude-plugin/plugin.json` が直下にある）の場合:
 
-  ```bash
-  git ls-remote https://github.com/<owner>/<repo>.git refs/heads/main
-  ```
+   ```json
+   {
+     "name": "<plugin-name>",
+     "source": {
+       "source": "url",
+       "url": "https://github.com/<owner>/<repo>.git",
+       "ref": "main",
+       "sha": "<40 桁の commit sha>"
+     },
+     "description": "説明"
+   }
+   ```
+
+   サブフォルダがプラグイン、またはスキルのフォルダ単体の場合:
+
+   ```json
+   {
+     "name": "<plugin-name>",
+     "source": {
+       "source": "git-subdir",
+       "url": "https://github.com/<owner>/<repo>.git",
+       "path": "skills/<skill-name>",
+       "ref": "main",
+       "sha": "<40 桁の commit sha>"
+     },
+     "description": "説明"
+   }
+   ```
+
+3. `sha` は次のコマンドで調べる。
+
+   ```bash
+   git ls-remote https://github.com/<owner>/<repo>.git refs/heads/main
+   ```
+
+4. `plugins/web-bundle/.claude-plugin/plugin.json` の `dependencies` に名前を足す。
+5. 検証してから、使い捨てのプロジェクトで導入を試す（下の「プロジェクトへ導入する」の手順）。
 
 - relative path 以外のソースでは、インストール前に外部の `plugin.json` を読めない。一覧に説明が出るよう、`description` はエントリ側に書いておく。
+- エントリの `name` は、上流の `plugin.json` の `name` とそろえる（食い違うとエントリ側の名前が使われる）。
 
-### `frontend-design` を新しい commit に更新する
+### 外部プラグインを新しい commit に更新する
 
-1. `git ls-remote https://github.com/anthropics/claude-code.git refs/heads/main` で最新 sha を調べる。
-2. 上流の変更内容を確認する（`plugins/frontend-design` の差分）。
-3. `marketplace.json` の `frontend-design` エントリの `sha` を書き換え、README の取り込み時点の記載も直す。
+1. `git ls-remote <リポジトリ URL> refs/heads/main` で最新 sha を調べる。
+2. 上流の変更内容を確認する（GitHub の compare 画面で、固定中の sha と最新 sha の差分を見る）。
+3. `marketplace.json` の該当エントリの `sha` を書き換える。
 4. `claude plugin validate . --strict` のあとコミットする。
 5. 導入済みのプロジェクトでは `claude plugin marketplace update ac-frontend` を実行し、`/reload-plugins` で反映する。
 
@@ -146,16 +187,26 @@ ac-frontend/
 
 ### 1. マーケットプレイスを登録する
 
-対象プロジェクトのルートで実行します。
+対象プロジェクトのルートで、どちらかを実行します。
+
+GitHub から登録する（別マシンでも使える。`.claude/settings.json` をコミットしても他の環境で解決できる）:
+
+```bash
+claude plugin marketplace add https://github.com/andcreate/ac-frontend-claude-plugins.git --scope project
+```
+
+ローカルフォルダから登録する（この PC だけ。スキルの編集がすぐ反映される）:
 
 ```bash
 claude plugin marketplace add D:/_Claude/marketplace/ac-frontend --scope project
 ```
 
+リポジトリ名は `ac-frontend-claude-plugins` ですが、マーケットプレイス名は `marketplace.json` の `name` で決まるため、どちらでも `ac-frontend` になります。
+
 - `--scope project` にすると、マーケットプレイスの宣言がプロジェクトの `.claude/settings.json` に書かれる。
 - 登録状態そのもの（`~/.claude/plugins/known_marketplaces.json`）はユーザー単位で 1 か所に保存される。これはプラグインのインストールではない。
 - ローカルディレクトリから登録した場合、relative path のプラグイン（`./plugins/...`）はこのフォルダから直接読み込まれる。スキルを編集すると、次のセッション開始か `/reload-plugins` で反映される。
-- 外部参照のプラグイン（`frontend-design` など）は git から取得され、`~/.claude/plugins/cache` にキャッシュされる。
+- 外部参照のプラグインは git から取得され、`~/.claude/plugins/cache` にキャッシュされる。
 - リモートに push したあとは、ローカルパスの代わりに `<owner>/ac-frontend` や git URL を指定できる。別マシンや他人と使うならこちらにする（`D:/...` の絶対パスは他の環境では解決できない）。
 
 ### リモートに置く場合（パブリックでなくてよい）
@@ -226,7 +277,7 @@ ac-frontend と同じ形で、親フォルダに独立したリポジトリと�
    }
    ```
 
-3. 各プラグインの `plugin.json` と `skills/` を作る。バンドルの `dependencies` には **同じマーケットプレイス内のプラグイン名** だけを書く。外部プラグインを入れたいときは、`frontend-design` と同じように自分の `marketplace.json` に git ソースのエントリを置く。
+3. 各プラグインの `plugin.json` と `skills/` を作る。バンドルの `dependencies` には **同じマーケットプレイス内のプラグイン名** だけを書く。外部プラグインを入れたいときは、ac-frontend と同じように自分の `marketplace.json` に git ソースのエントリを置く。
    ac-frontend のプラグインに依存させたい場合だけ、ac-unity の `marketplace.json` に `"allowCrossMarketplaceDependenciesOn": ["ac-frontend"]` を書き、依存を `{ "name": "frontend-design", "marketplace": "ac-frontend" }` の形で書く。
 4. 検証する。
 

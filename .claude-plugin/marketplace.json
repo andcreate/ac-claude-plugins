@@ -3,7 +3,7 @@
   "owner": {
     "name": "ロジ"
   },
-  "description": "Web フロントエンド開発（Next.js / TypeScript / Headless WordPress）向けのプラグイン集",
+  "description": "Web フロントエンド開発向けのプラグイン集",
   "version": "0.1.0",
   "plugins": [
     {
@@ -13,17 +13,139 @@
       "category": "bundle"
     },
     {
+      "name": "ui-ux-pro-max",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+        "ref": "main",
+        "sha": "dcc40ff5133ef78276117db0cc34e7b83cc8aeba"
+      },
+      "description": "UI/UX デザインの知識ベース（スタイル・配色・フォント・チャート・スタック別ガイドライン）。ui-ux-pro-max / design / design-system / ui-styling / brand / banner-design / slides の 7 スキル",
+      "homepage": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "license": "MIT",
+      "category": "design"
+    },
+    {
+      "name": "taste-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Leonxlnx/taste-skill.git",
+        "ref": "main",
+        "sha": "c184364c58658b2f131b4ae8bd3d206cabb3deee"
+      },
+      "description": "フロントエンドのデザインテイスト集（brutalist / minimalist / soft / redesign / image-to-code など 13 スキル）",
+      "homepage": "https://github.com/Leonxlnx/taste-skill",
+      "license": "MIT",
+      "category": "design"
+    },
+    {
       "name": "frontend-design",
       "source": {
         "source": "git-subdir",
-        "url": "https://github.com/anthropics/claude-code.git",
-        "path": "plugins/frontend-design",
+        "url": "https://github.com/anthropics/skills.git",
+        "path": "skills/frontend-design",
         "ref": "main",
-        "sha": "56f36532530f88b572854538d685fcf781141e8c"
+        "sha": "34040c9c568585f6929bedeaad110ad08f079624"
       },
-      "description": "Anthropic 公式の frontend-design プラグイン（UI/UX 実装用スキル）。anthropics/claude-code を commit 固定で参照",
-      "homepage": "https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design",
-      "category": "frontend"
+      "description": "Anthropic 公式。テンプレ感のない、意図のあるビジュアルデザインで UI を作るためのスキル",
+      "homepage": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "license": "Apache-2.0",
+      "category": "design"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/skills.git",
+        "path": "skills/web-artifacts-builder",
+        "ref": "main",
+        "sha": "34040c9c568585f6929bedeaad110ad08f079624"
+      },
+      "description": "Anthropic 公式。React / Tailwind / shadcn/ui で複数コンポーネントの claude.ai HTML アーティファクトを作るスキル",
+      "homepage": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+      "license": "Apache-2.0",
+      "category": "design"
+    },
+    {
+      "name": "brand-guidelines",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/skills.git",
+        "path": "skills/brand-guidelines",
+        "ref": "main",
+        "sha": "34040c9c568585f6929bedeaad110ad08f079624"
+      },
+      "description": "Anthropic 公式。Anthropic のブランドカラーとタイポグラフィを成果物に適用するスキル",
+      "homepage": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
+      "license": "Apache-2.0",
+      "category": "design"
+    },
+    {
+      "name": "transitions-dev",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Jakubantalik/transitions.dev.git",
+        "ref": "main",
+        "sha": "e2d5551656e4d3274e075d1cbd9a95af50f53225"
+      },
+      "description": "Web アプリ向けの CSS トランジション集（transitions-dev）と、既存モーションをトークンに沿って整える transitions-polish の 2 スキル",
+      "homepage": "https://github.com/Jakubantalik/transitions.dev",
+      "category": "motion"
+    },
+    {
+      "name": "apple-design",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/emilkowalski/skills.git",
+        "path": "skills/apple-design",
+        "ref": "main",
+        "sha": "85e8e2363b713506e1d5b6e07a0eb2da66be1bc3"
+      },
+      "description": "Apple 流のインターフェースと物理的なモーション（ジェスチャー、スプリング、シート、素材感）を Web に移すスキル",
+      "homepage": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+      "license": "MIT",
+      "category": "motion"
+    },
+    {
+      "name": "emil-design-eng",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/emilkowalski/skills.git",
+        "path": "skills/emil-design-eng",
+        "ref": "main",
+        "sha": "85e8e2363b713506e1d5b6e07a0eb2da66be1bc3"
+      },
+      "description": "Emil Kowalski の UI の磨き込み・コンポーネント設計・アニメーション判断の考え方をまとめたスキル",
+      "homepage": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
+      "license": "MIT",
+      "category": "motion"
+    },
+    {
+      "name": "web-quality-skills",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/addyosmani/web-quality-skills.git",
+        "ref": "main",
+        "sha": "afa8da942115f2961fdbfa80807ea0b232ff6c00"
+      },
+      "description": "計測ベースの Web 品質スキル集（performance / Core Web Vitals / accessibility / SEO / best-practices / web-quality-audit の 6 スキル）",
+      "homepage": "https://github.com/addyosmani/web-quality-skills",
+      "license": "MIT",
+      "category": "quality"
+    },
+    {
+      "name": "design-review",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Superfuture/design-review.git",
+        "path": "design-review",
+        "ref": "main",
+        "sha": "d4d2609b53fccb475d11490e2c6261e5eb2f0c5d"
+      },
+      "description": "URL・スクリーンショット・コンポーネントを、階層・文字・余白・コントラスト・モーション・アクセシビリティの観点で講評し、修正案を出すスキル",
+      "homepage": "https://github.com/Superfuture/design-review",
+      "license": "MIT",
+      "category": "quality"
     }
   ]
 }

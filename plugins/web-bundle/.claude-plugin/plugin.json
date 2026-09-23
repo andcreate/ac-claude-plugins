@@ -7,6 +7,15 @@
   },
   "keywords": ["bundle", "web", "frontend"],
   "dependencies": [
-    "frontend-design"
+    "ui-ux-pro-max",
+    "taste-skill",
+    "frontend-design",
+    "web-artifacts-builder",
+    "brand-guidelines",
+    "transitions-dev",
+    "apple-design",
+    "emil-design-eng",
+    "web-quality-skills",
+    "design-review"
   ]
 }
