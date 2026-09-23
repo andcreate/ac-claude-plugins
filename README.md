@@ -227,7 +227,7 @@ ac-frontend と同じ形で、親フォルダに独立したリポジトリと�
    ```
 
 3. 各プラグインの `plugin.json` と `skills/` を作る。バンドルの `dependencies` には **同じマーケットプレイス内のプラグイン名** だけを書く。外部プラグインを入れたいときは、`frontend-design` と同じように自分の `marketplace.json` に git ソースのエントリを置く。
-   ac-frontend のプラグインに依存させたい場合だけ、ac-unity の `marketplace.json` に `"allowCrossMarketplaceDependenciesOn": ["ac-frontend"]` を書き、依存を `{ "name": "web-frontend", "marketplace": "ac-frontend" }` の形で書く。
+   ac-frontend のプラグインに依存させたい場合だけ、ac-unity の `marketplace.json` に `"allowCrossMarketplaceDependenciesOn": ["ac-frontend"]` を書き、依存を `{ "name": "frontend-design", "marketplace": "ac-frontend" }` の形で書く。
 4. 検証する。
 
    ```bash
