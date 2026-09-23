@@ -88,30 +88,30 @@
       "category": "design"
     },
     {
-  "name": "taste-skill",
-  "source": {
-    "source": "git-subdir",
-    "url": "https://github.com/Leonxlnx/taste-skill.git",
-    "path": "skills",
-    "ref": "main",
-    "sha": "c184364c58658b2f131b4ae8bd3d206cabb3deee"
-  },
-  "strict": false,
-  "skills": [
-    "./taste-skill",
-    "./soft-skill",
-    "./minimalist-skill",
-    "./brutalist-skill",
-    "./redesign-skill",
-    "./gpt-tasteskill",
-    "./stitch-skill",
-    "./output-skill"
-  ],
-  "description": "フロントエンドのデザインテイスト集（taste / soft / minimalist / brutalist / redesign など 8 スキル）。旧版の taste-skill-v1 と画像生成前提の imagegen-frontend-web / imagegen-frontend-mobile / brandkit / image-to-code-skill は除外",
-  "homepage": "https://github.com/Leonxlnx/taste-skill",
-  "license": "MIT",
-  "category": "design"
-},
+      "name": "taste-skill",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Leonxlnx/taste-skill.git",
+        "path": "skills",
+        "ref": "main",
+        "sha": "c184364c58658b2f131b4ae8bd3d206cabb3deee"
+      },
+      "strict": false,
+      "skills": [
+        "./taste-skill",
+        "./soft-skill",
+        "./minimalist-skill",
+        "./brutalist-skill",
+        "./redesign-skill",
+        "./gpt-tasteskill",
+        "./stitch-skill",
+        "./output-skill"
+      ],
+      "description": "フロントエンドのデザインテイスト集（taste / soft / minimalist / brutalist / redesign など 8 スキル）。旧版の taste-skill-v1 と画像生成前提の imagegen-frontend-web / imagegen-frontend-mobile / brandkit / image-to-code-skill は除外",
+      "homepage": "https://github.com/Leonxlnx/taste-skill",
+      "license": "MIT",
+      "category": "design"
+    },
     {
       "name": "frontend-design",
       "source": {
@@ -143,11 +143,17 @@
     {
       "name": "transitions-dev",
       "source": {
-        "source": "url",
+        "source": "git-subdir",
         "url": "https://github.com/Jakubantalik/transitions.dev.git",
+        "path": "skills",
         "ref": "main",
         "sha": "e2d5551656e4d3274e075d1cbd9a95af50f53225"
       },
+      "strict": false,
+      "skills": [
+        "./transitions-dev",
+        "./transitions-polish"
+      ],
       "description": "Web アプリ向けの CSS トランジション集（transitions-dev）と、既存モーションをトークンに沿って整える transitions-polish の 2 スキル",
       "homepage": "https://github.com/Jakubantalik/transitions.dev",
       "category": "motion"
