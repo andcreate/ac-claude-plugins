@@ -1,6 +1,6 @@
 # ac-frontend
 
-Web フロントエンド開発（Next.js / TypeScript / Headless WordPress）向けの Claude Code プラグインマーケットプレイスです。
+Web フロントエンド開発向けの Claude Code プラグインマーケットプレイスです。
 
 プロジェクトごとに次の 1 コマンドで、Web 系の定番スキル一式を入れられます。
 
@@ -17,23 +17,19 @@ ac-frontend/
 ├── .claude-plugin/
 │   └── marketplace.json          # マーケットプレイス定義（プラグイン一覧）
 ├── plugins/
-│   ├── web-bundle/               # バンドル。dependencies だけを持ち、スキルはない
-│   │   └── .claude-plugin/plugin.json
-│   ├── web-frontend/             # 自作スキル置き場（Next.js / TypeScript 向け）
-│   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/nextjs-conventions/SKILL.md
-│   └── headless-wp/              # 自作スキル置き場（Headless WordPress 向け）
-│       ├── .claude-plugin/plugin.json
-│       └── skills/wp-rest-graphql/SKILL.md
+│   └── web-bundle/               # バンドル。dependencies だけを持ち、スキルはない
+│       └── .claude-plugin/plugin.json
+├── archive/
+│   └── plugins/                  # 退役したプラグイン。marketplace.json からは参照しない
 └── README.md
 ```
 
 | プラグイン | ソース | 中身 |
 | :-- | :-- | :-- |
-| `web-bundle` | `./plugins/web-bundle` | `web-frontend` / `headless-wp` / `frontend-design` への依存だけを宣言 |
-| `web-frontend` | `./plugins/web-frontend` | スキル `nextjs-conventions`（雛形） |
-| `headless-wp` | `./plugins/headless-wp` | スキル `wp-rest-graphql`（雛形） |
+| `web-bundle` | `./plugins/web-bundle` | 下記の外部プラグインへの依存だけを宣言 |
 | `frontend-design` | `git-subdir`（anthropics/claude-code の `plugins/frontend-design`） | Anthropic 公式のスキル。中身はこのリポジトリに置かない |
+
+`archive/plugins/` には、最初に雛形として作った `web-frontend`（Next.js 向け）と `headless-wp`（Headless WordPress 向け）を退役させて置いています。戻すときは `plugins/` に移し、`marketplace.json` にエントリを、`web-bundle` の `dependencies` に名前を足します。
 
 ### 依存関係の仕組み
 
@@ -49,9 +45,9 @@ ac-frontend/
 
 ## スキルを追加する
 
-既存プラグイン（例: `web-frontend`）にスキルを足す場合です。
+自作プラグイン（`plugins/<plugin-name>`）にスキルを足す場合です。自作プラグインがまだなければ、先に「自作プラグインを追加する」を行います。
 
-1. `plugins/web-frontend/skills/<skill-name>/SKILL.md` を作る。ディレクトリ名とフロントマターの `name` は同じ kebab-case にする。
+1. `plugins/<plugin-name>/skills/<skill-name>/SKILL.md` を作る。ディレクトリ名とフロントマターの `name` は同じ kebab-case にする。
 
    ```markdown
    ---
@@ -69,10 +65,11 @@ ac-frontend/
 3. 検証する。
 
    ```bash
-   claude plugin validate plugins/web-frontend --strict
+   claude plugin validate plugins/<plugin-name> --strict
+   claude plugin validate plugins/<plugin-name>/skills --strict
    ```
 
-4. `plugins/web-frontend/.claude-plugin/plugin.json` の `version` を上げる（新機能なら MINOR、修正なら PATCH）。
+4. `plugins/<plugin-name>/.claude-plugin/plugin.json` の `version` を上げる（新機能なら MINOR、修正なら PATCH）。
 5. コミットする。
 
 ## プラグインを追加する
@@ -157,9 +154,16 @@ claude plugin marketplace add D:/_Claude/marketplace/ac-frontend --scope project
 
 - `--scope project` にすると、マーケットプレイスの宣言がプロジェクトの `.claude/settings.json` に書かれる。
 - 登録状態そのもの（`~/.claude/plugins/known_marketplaces.json`）はユーザー単位で 1 か所に保存される。これはプラグインのインストールではない。
-- ローカルディレクトリから登録した場合、relative path のプラグイン（`web-bundle` / `web-frontend` / `headless-wp`）はこのフォルダから直接読み込まれる。スキルを編集すると、次のセッション開始か `/reload-plugins` で反映される。
-- `frontend-design` は git から取得され、`~/.claude/plugins/cache` にキャッシュされる。
-- GitHub などに push したあとは、ローカルパスの代わりに `<owner>/ac-frontend` や git URL を指定できる。チームで共有するならこちらにする（`D:/...` の絶対パスは他人の環境では解決できない）。
+- ローカルディレクトリから登録した場合、relative path のプラグイン（`./plugins/...`）はこのフォルダから直接読み込まれる。スキルを編集すると、次のセッション開始か `/reload-plugins` で反映される。
+- 外部参照のプラグイン（`frontend-design` など）は git から取得され、`~/.claude/plugins/cache` にキャッシュされる。
+- リモートに push したあとは、ローカルパスの代わりに `<owner>/ac-frontend` や git URL を指定できる。別マシンや他人と使うならこちらにする（`D:/...` の絶対パスは他の環境では解決できない）。
+
+### リモートに置く場合（パブリックでなくてよい）
+
+- 自分 1 台だけで使うなら、リモートは不要。上のローカルパス登録で完結する。
+- 複数マシンで使うなら、プライベートリポジトリでよい。`marketplace add` / `install` / `update` は手元の git 認証（credential helper や SSH 鍵）をそのまま使う。
+- GitHub のプライベートリポジトリなら、`gh auth login` と `gh auth setup-git` を済ませておくと、バックグラウンドの自動更新も認証できる。確認は `git ls-remote <リポジトリ URL>` がパスワードを聞かずに通るかで行う。
+- `owner/repo` 形式で登録すると既定では SSH で clone される。HTTPS を使いたい場合は環境変数 `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` を設定する。
 
 ### 2. バンドルをインストールする
 
@@ -167,7 +171,7 @@ claude plugin marketplace add D:/_Claude/marketplace/ac-frontend --scope project
 claude plugin install web-bundle@ac-frontend --scope project
 ```
 
-`web-bundle` をインストールすると、`dependencies` に書いた `web-frontend` / `headless-wp` / `frontend-design` も自動で入ります。個別に入れたい場合は `web-frontend@ac-frontend` のように名前を指定します。
+`web-bundle` をインストールすると、`dependencies` に書いたプラグインも同じスコープで自動で入ります。個別に入れたい場合は `frontend-design@ac-frontend` のように名前を指定します。
 
 ### `--scope project` と `--scope local` の違い
 

@@ -7,8 +7,6 @@
   },
   "keywords": ["bundle", "web", "frontend"],
   "dependencies": [
-    "web-frontend",
-    "headless-wp",
     "frontend-design"
   ]
 }

@@ -9,20 +9,8 @@
     {
       "name": "web-bundle",
       "source": "./plugins/web-bundle",
-      "description": "Web フロントエンド用の定番プラグイン一式（web-frontend / headless-wp / frontend-design）をまとめて入れるバンドル",
+      "description": "Web フロントエンド用の定番プラグイン一式をまとめて入れるバンドル",
       "category": "bundle"
-    },
-    {
-      "name": "web-frontend",
-      "source": "./plugins/web-frontend",
-      "description": "Next.js / TypeScript プロジェクト向けの自作スキル集",
-      "category": "frontend"
-    },
-    {
-      "name": "headless-wp",
-      "source": "./plugins/headless-wp",
-      "description": "Headless WordPress（REST API / WPGraphQL）をバックエンドにするプロジェクト向けの自作スキル集",
-      "category": "frontend"
     },
     {
       "name": "frontend-design",
