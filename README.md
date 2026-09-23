@@ -32,7 +32,6 @@ ac-frontend/
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `url`（リポジトリ全体） | taste-skill, taste-skill-v1, gpt-tasteskill, brutalist-skill, minimalist-skill, soft-skill, redesign-skill, stitch-skill, image-to-code-skill, imagegen-frontend-web, imagegen-frontend-mobile, brandkit, output-skill | MIT |
 | `frontend-design` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) `skills/frontend-design` | `git-subdir` | frontend-design | Apache-2.0 |
 | `web-artifacts-builder` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder) `skills/web-artifacts-builder` | `git-subdir` | web-artifacts-builder | Apache-2.0 |
-| `brand-guidelines` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/brand-guidelines) `skills/brand-guidelines` | `git-subdir` | brand-guidelines | Apache-2.0 |
 | `transitions-dev` | [Jakubantalik/transitions.dev](https://github.com/Jakubantalik/transitions.dev) | `url`（リポジトリ全体） | transitions-dev, transitions-polish | 表記なし |
 | `apple-design` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/apple-design) `skills/apple-design` | `git-subdir` | apple-design | MIT |
 | `emil-design-eng` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng) `skills/emil-design-eng` | `git-subdir` | emil-design-eng | MIT |
@@ -46,7 +45,15 @@ ac-frontend/
 - transitions.dev は `plugin.json` がないが、`transitions-polish` が `../transitions-dev` を参照するため、2 つを並べたまま取れるようリポジトリ全体を参照する（直下の `skills/` が自動で読み込まれる）。
 - GitHub のリポジトリでも `github` ソースではなく HTTPS の `url` ソースを使っている。`github` ソースは既定で SSH clone になり、SSH 鍵の設定に左右されるため。
 
-`archive/plugins/` には、最初に雛形として作った `web-frontend`（Next.js 向け）と `headless-wp`（Headless WordPress 向け）を退役させて置いています。戻すときは `plugins/` に移し、`marketplace.json` にエントリを、`web-bundle` の `dependencies` に名前を足します。
+### 退役したもの
+
+- `archive/plugins/` には、最初に雛形として作った `web-frontend`（Next.js 向け）と `headless-wp`（Headless WordPress 向け）を退役させて置いています。戻すときは `plugins/` に移し、`marketplace.json` にエントリを、`web-bundle` の `dependencies` に名前を足します。
+- 外部参照から外したもの（エントリは git 履歴に残っています）:
+
+  | プラグイン | 参照先 | 外した理由 |
+  | :-- | :-- | :-- |
+  | `brand-guidelines` | anthropics/skills `skills/brand-guidelines` | Anthropic 自身のブランド（配色・Poppins / Lora）を適用するスキルで、自分の案件には使わないため。ブランドの話題で誤発火するおそれもある |
+  | `frontend-design`（旧参照先） | anthropics/claude-code `plugins/frontend-design` | anthropics/skills 版に差し替えたため |
 
 ### 依存関係の仕組み
 

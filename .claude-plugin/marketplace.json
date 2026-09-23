@@ -67,20 +67,6 @@
       "category": "design"
     },
     {
-      "name": "brand-guidelines",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/anthropics/skills.git",
-        "path": "skills/brand-guidelines",
-        "ref": "main",
-        "sha": "34040c9c568585f6929bedeaad110ad08f079624"
-      },
-      "description": "Anthropic 公式。Anthropic のブランドカラーとタイポグラフィを成果物に適用するスキル",
-      "homepage": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
-      "license": "Apache-2.0",
-      "category": "design"
-    },
-    {
       "name": "transitions-dev",
       "source": {
         "source": "url",
