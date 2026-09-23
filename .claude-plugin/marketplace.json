@@ -1,15 +1,15 @@
 {
-  "name": "ac-frontend",
+  "name": "ac-claude-plugins",
   "owner": {
     "name": "ロジ"
   },
-  "description": "Web フロントエンド開発向けのプラグイン集",
+  "description": "ロジの Claude Code プラグイン集。用途別のバンドル（frontend など）を 1 つ入れると、必要なスキル一式が入る",
   "version": "0.1.0",
   "plugins": [
     {
-      "name": "web-bundle",
-      "source": "./plugins/web-bundle",
-      "description": "Web フロントエンド用の定番プラグイン一式をまとめて入れるバンドル",
+      "name": "frontend",
+      "source": "./plugins/frontend",
+      "description": "【バンドル】Web フロントエンド用のスキル一式（UI/UX デザイン、テイスト、モーション、Web 品質、デザインレビュー）",
       "category": "bundle"
     },
     {
