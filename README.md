@@ -5,7 +5,12 @@
 ```bash
 # Web フロントエンドのプロジェクトで
 claude plugin install frontend@ac-claude-plugins --scope project
+
+# WordPress のプロジェクトで
+claude plugin install wordpress@ac-claude-plugins --scope project
 ```
+
+1 つのプロジェクトに複数のバンドルを入れても構いません（例: ヘッドレス WordPress なら `wordpress` と `frontend` の両方）。
 
 - リポジトリ: https://github.com/andcreate/ac-claude-plugins
 - ローカル: `D:\_Claude\marketplace\ac-claude-plugins`（親フォルダ `D:\_Claude\marketplace` は git 管理しない）
@@ -17,7 +22,9 @@ ac-claude-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json          # マーケットプレイス定義（全用途のプラグイン一覧）
 ├── plugins/
-│   └── frontend/                 # バンドル。dependencies だけを持ち、スキルはない
+│   ├── frontend/                 # バンドル。dependencies だけを持ち、スキルはない
+│   │   └── .claude-plugin/plugin.json
+│   └── wordpress/                # バンドル。同上
 │       └── .claude-plugin/plugin.json
 ├── archive/
 │   └── plugins/                  # 退役したプラグイン。marketplace.json からは参照しない
@@ -49,6 +56,24 @@ Web フロントエンド用。依存先は次のとおりです。
 | `web-quality-skills` | [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills) | `url`（リポジトリ全体） | accessibility, best-practices, core-web-vitals, performance, seo, web-quality-audit | MIT |
 | `design-review` | [Superfuture/design-review](https://github.com/Superfuture/design-review) `design-review` | `git-subdir` | design-review、コマンド activate | MIT（plugin.json の記載） |
 
+### `wordpress`
+
+WordPress 用（クラシックテーマ、ブロックテーマ、プラグイン開発、案件ごとの Docker 環境）。依存先は次のとおりです。
+
+| プラグイン | 参照先 | ソース | 入るスキル | ライセンス |
+| :-- | :-- | :-- | :-- | :-- |
+| `wp-agent-skills` | [WordPress/agent-skills](https://github.com/WordPress/agent-skills) `skills` | `git-subdir`＋スキル指定 | wordpress-router, wp-project-triage, wp-plugin-development, wp-block-development, wp-block-themes, wp-patterns, wp-interactivity-api, wpds, wp-rest-api, wp-abilities-api, wp-abilities-audit, wp-abilities-verify, wp-wpcli-and-ops, wp-performance, wp-phpstan, wp-env, wp-playground, blueprint | GPL-2.0-or-later |
+| `docker-skills` | [docker/skills](https://github.com/docker/skills) `skills` | `git-subdir`＋スキル指定 | docker-project-foundations, docker-compose-patterns, docker-build-strategies, docker-destructive-guardrails | Apache-2.0 |
+
+入れていないもの:
+
+- WordPress 公式の `wp-plugin-directory-guidelines`: wordpress.org にプラグインを公開しないため。
+- Docker 公式の Docker Agent / Docker Sandboxes 系 7 スキル: AI エージェントの実行環境向けで、WordPress 開発と関係がないため。
+- 汎用の PHP スキル（PSR 準拠のコーディング規約、PDO 前提のセキュリティ、PHP 8.x 前提の書き方など）: WordPress Coding Standards や、`$wpdb->prepare` / `esc_*` などの WordPress 流と食い違うため。WordPress の文脈の PHP は公式スキルでカバーされる。
+- [Automattic/wordpress-agent-skills](https://github.com/Automattic/wordpress-agent-skills): ブロックテーマでのサイト生成に特化しており、公式の wp-block-themes や frontend-design と重なる。更新が止まっていて、ライセンス表記もない。
+
+今後の候補: WordPress Coding Standards（PHPCS / WPCS）に沿って書く・直すスキルは、使えそうな既存のものがないため、必要になったら自作プラグインとして足す。
+
 ## 仕組みと決めごと
 
 ### 依存関係
@@ -61,8 +86,27 @@ Web フロントエンド用。依存先は次のとおりです。
 - 上流がリポジトリ直下をプラグインとして配布している（`.claude-plugin/plugin.json` がある）ものは、リポジトリ全体を `url` ソースで参照する。上流の `plugin.json` がそのまま使われる。
 - スキルのフォルダ単体のもの（anthropics/skills、emilkowalski/skills）は、`git-subdir` でそのフォルダだけを取る。`plugin.json` がないフォルダは、直下の `SKILL.md` が 1 つのスキルとして読み込まれる。
 - transitions.dev は `plugin.json` がないが、`transitions-polish` が `../transitions-dev` を参照するため、2 つを並べたまま取れるようリポジトリ全体を参照する（直下の `skills/` が自動で読み込まれる）。
+- 上流の `skills/` のうち **一部だけ** を使いたいもの（WordPress 公式、Docker 公式）は、`git-subdir` の `path` を `skills` にし、`"strict": false` と `skills` で読み込むスキルを列挙する（下の例）。
+  - リポジトリ全体を参照すると、プラグイン直下の `skills/` は常に全部読み込まれる。エントリの `skills` は「追加」にしかならず、除外には使えない。
+  - `skills/` フォルダ自体をプラグインの置き場にすると、自動で読み込まれる `skills/skills/` は存在しないので、列挙したスキルだけが読み込まれる。
+  - `skills/` はフォルダごと取得されるので、スキル同士の `../` 参照（例: wp-abilities-audit から wp-abilities-api の references）は切れない。
+
+  ```json
+  {
+    "name": "wp-agent-skills",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/WordPress/agent-skills.git",
+      "path": "skills",
+      "ref": "trunk",
+      "sha": "<40 桁の commit sha>"
+    },
+    "strict": false,
+    "skills": ["./wp-plugin-development", "./wp-block-themes"]
+  }
+  ```
 - GitHub のリポジトリでも `github` ソースではなく HTTPS の `url` ソースを使う。`github` ソースは既定で SSH clone になり、SSH 鍵の設定に左右されるため。
-- すべて `sha` で commit を固定する（現在の固定は 2026-09-23 時点の各リポジトリの main）。
+- すべて `sha` で commit を固定する（現在の固定は 2026-09-23 時点の各リポジトリの既定ブランチ。WordPress/agent-skills は `trunk`、ほかは `main`）。
 
 ### バージョン
 
@@ -154,7 +198,7 @@ Web フロントエンド用。依存先は次のとおりです。
 3. `sha` は次のコマンドで調べる。
 
    ```bash
-   git ls-remote https://github.com/<owner>/<repo>.git refs/heads/main
+   git ls-remote https://github.com/<owner>/<repo>.git HEAD
    ```
 
 4. 使うバンドルの `plugins/<バンドル名>/.claude-plugin/plugin.json` の `dependencies` に名前を足す。
@@ -212,7 +256,7 @@ Web フロントエンド用。依存先は次のとおりです。
 
 ### 外部プラグインを新しい commit に更新する
 
-1. `git ls-remote <リポジトリ URL> refs/heads/main` で最新 sha を調べる。
+1. `git ls-remote <リポジトリ URL> HEAD` で既定ブランチ（`main` や `trunk`）の最新 sha を調べる。
 2. 上流の変更内容を確認する（GitHub の compare 画面で、固定中の sha と最新 sha の差分を見る）。
 3. `marketplace.json` の該当エントリの `sha` を書き換える。
 4. `claude plugin validate . --strict` のあとコミットして push する。

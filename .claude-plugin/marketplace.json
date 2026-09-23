@@ -13,6 +13,68 @@
       "category": "bundle"
     },
     {
+      "name": "wordpress",
+      "source": "./plugins/wordpress",
+      "description": "【バンドル】WordPress 用のスキル一式（WordPress 公式スキル、Docker 公式スキル）",
+      "category": "bundle"
+    },
+    {
+      "name": "wp-agent-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/WordPress/agent-skills.git",
+        "path": "skills",
+        "ref": "trunk",
+        "sha": "9f4a603340bc7a474037967f66459391087e9165"
+      },
+      "strict": false,
+      "skills": [
+        "./wordpress-router",
+        "./wp-project-triage",
+        "./wp-plugin-development",
+        "./wp-block-development",
+        "./wp-block-themes",
+        "./wp-patterns",
+        "./wp-interactivity-api",
+        "./wpds",
+        "./wp-rest-api",
+        "./wp-abilities-api",
+        "./wp-abilities-audit",
+        "./wp-abilities-verify",
+        "./wp-wpcli-and-ops",
+        "./wp-performance",
+        "./wp-phpstan",
+        "./wp-env",
+        "./wp-playground",
+        "./blueprint"
+      ],
+      "description": "WordPress 公式スキル（ブロック・テーマ・プラグイン開発・REST API・WP-CLI・PHPStan・パフォーマンスなど 18 スキル）。wordpress.org 公開向けの wp-plugin-directory-guidelines は除外",
+      "homepage": "https://github.com/WordPress/agent-skills",
+      "license": "GPL-2.0-or-later",
+      "category": "wordpress"
+    },
+    {
+      "name": "docker-skills",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/docker/skills.git",
+        "path": "skills",
+        "ref": "main",
+        "sha": "9526b91b2d913cc09bea584ce25c77599a6b2d4b"
+      },
+      "strict": false,
+      "skills": [
+        "./docker-project-foundations",
+        "./docker-compose-patterns",
+        "./docker-build-strategies",
+        "./docker-destructive-guardrails"
+      ],
+      "description": "Docker 公式スキルのうち、Dockerfile・Compose・プロジェクトの Docker 化・破壊的操作の前の確認の 4 スキル。Docker Agent / Sandboxes 向けのスキルは除外",
+      "homepage": "https://github.com/docker/skills",
+      "license": "Apache-2.0",
+      "category": "devops"
+    },
+    {
       "name": "ui-ux-pro-max",
       "source": {
         "source": "url",
