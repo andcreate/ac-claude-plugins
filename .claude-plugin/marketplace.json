@@ -1,9 +1,9 @@
 {
   "name": "ac-claude-plugins",
   "owner": {
-    "name": "ロジ"
+    "name": "andcreate"
   },
-  "description": "ロジの Claude Code プラグイン集。用途別のバンドル（frontend など）を 1 つ入れると、必要なスキル一式が入る",
+  "description": "用途別のバンドル（frontend など）を 1 つ入れると、その用途のスキル一式が入る Claude Code プラグイン集",
   "version": "0.1.0",
   "plugins": [
     {

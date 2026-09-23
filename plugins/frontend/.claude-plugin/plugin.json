@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Web フロントエンド用のバンドル。自身はスキルを持たず、dependencies だけを宣言する",
   "author": {
-    "name": "ロジ"
+    "name": "andcreate"
   },
   "keywords": ["bundle", "web", "frontend"],
   "dependencies": [

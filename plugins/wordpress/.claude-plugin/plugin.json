@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "WordPress 用のバンドル。自身はスキルを持たず、dependencies だけを宣言する",
   "author": {
-    "name": "ロジ"
+    "name": "andcreate"
   },
   "keywords": ["bundle", "wordpress", "php", "docker"],
   "dependencies": [

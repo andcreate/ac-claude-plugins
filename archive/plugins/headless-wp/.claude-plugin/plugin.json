@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Headless WordPress（REST API / WPGraphQL）をバックエンドにするプロジェクト向けの自作スキル集",
   "author": {
-    "name": "ロジ"
+    "name": "andcreate"
   },
   "keywords": ["wordpress", "headless", "wpgraphql", "rest-api"]
 }
