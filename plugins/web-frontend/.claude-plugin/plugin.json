@@ -1,0 +1,9 @@
+{
+  "name": "web-frontend",
+  "version": "0.1.0",
+  "description": "Next.js / TypeScript プロジェクト向けの自作スキル集",
+  "author": {
+    "name": "ロジ"
+  },
+  "keywords": ["nextjs", "typescript", "react", "frontend"]
+}

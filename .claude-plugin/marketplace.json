@@ -1,0 +1,41 @@
+{
+  "name": "ac-frontend",
+  "owner": {
+    "name": "ロジ"
+  },
+  "description": "Web フロントエンド開発（Next.js / TypeScript / Headless WordPress）向けのプラグイン集",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "web-bundle",
+      "source": "./plugins/web-bundle",
+      "description": "Web フロントエンド用の定番プラグイン一式（web-frontend / headless-wp / frontend-design）をまとめて入れるバンドル",
+      "category": "bundle"
+    },
+    {
+      "name": "web-frontend",
+      "source": "./plugins/web-frontend",
+      "description": "Next.js / TypeScript プロジェクト向けの自作スキル集",
+      "category": "frontend"
+    },
+    {
+      "name": "headless-wp",
+      "source": "./plugins/headless-wp",
+      "description": "Headless WordPress（REST API / WPGraphQL）をバックエンドにするプロジェクト向けの自作スキル集",
+      "category": "frontend"
+    },
+    {
+      "name": "frontend-design",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/claude-code.git",
+        "path": "plugins/frontend-design",
+        "ref": "main",
+        "sha": "56f36532530f88b572854538d685fcf781141e8c"
+      },
+      "description": "Anthropic 公式の frontend-design プラグイン（UI/UX 実装用スキル）。anthropics/claude-code を commit 固定で参照",
+      "homepage": "https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design",
+      "category": "frontend"
+    }
+  ]
+}

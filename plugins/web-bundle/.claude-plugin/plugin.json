@@ -1,0 +1,14 @@
+{
+  "name": "web-bundle",
+  "version": "0.1.0",
+  "description": "Web フロントエンド用の定番プラグイン一式をまとめて入れるバンドル。自身はスキルを持たず、dependencies だけを宣言する",
+  "author": {
+    "name": "ロジ"
+  },
+  "keywords": ["bundle", "web", "frontend"],
+  "dependencies": [
+    "web-frontend",
+    "headless-wp",
+    "frontend-design"
+  ]
+}
