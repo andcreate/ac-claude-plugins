@@ -57,7 +57,7 @@ Web フロントエンド開発用。
 | プラグイン | 上流 | 入るスキル | ライセンス |
 | :-- | :-- | :-- | :-- |
 | `ui-ux-pro-max` | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | ui-ux-pro-max, design, design-system, ui-styling, brand, banner-design, slides | MIT |
-| `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | taste-skill ほか 13 スキル | MIT |
+| `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | design-taste-frontend（v2） | MIT |
 | `frontend-design` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | frontend-design | Apache-2.0 |
 | `web-artifacts-builder` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder) | web-artifacts-builder | Apache-2.0 |
 | `transitions-dev` | [Jakubantalik/transitions.dev](https://github.com/Jakubantalik/transitions.dev) | transitions-dev, transitions-polish | 表記なし |

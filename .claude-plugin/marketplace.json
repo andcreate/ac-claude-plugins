@@ -98,16 +98,9 @@
       },
       "strict": false,
       "skills": [
-        "./taste-skill",
-        "./soft-skill",
-        "./minimalist-skill",
-        "./brutalist-skill",
-        "./redesign-skill",
-        "./gpt-tasteskill",
-        "./stitch-skill",
-        "./output-skill"
+        "./taste-skill"
       ],
-      "description": "フロントエンドのデザインテイスト集（taste / soft / minimalist / brutalist / redesign など 8 スキル）。旧版の taste-skill-v1 と画像生成前提の imagegen-frontend-web / imagegen-frontend-mobile / brandkit / image-to-code-skill は除外",
+      "description": "taste-skill v2（design-taste-frontend）。Web ページやアプリ画面のアートディレクション、実ブラウザでの検査、公開コレクションからの画像取得を行う。スクリプトの実行に Node 22 以上と Chrome / Edge が必要",
       "homepage": "https://github.com/Leonxlnx/taste-skill",
       "license": "MIT",
       "category": "design"
