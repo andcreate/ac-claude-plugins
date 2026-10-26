@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["custom.regex"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["before 9am on monday"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "marketplace.json の外部エントリの sha を、ref の最新コミットに上げる",
+      "managerFilePatterns": ["/^\\.claude-plugin/marketplace\\.json$/"],
+      "matchStrings": [
+        "\"url\":\\s*\"(?<packageName>[^\"]+)\",\\s*(?:\"path\":\\s*\"[^\"]*\",\\s*)?\"ref\":\\s*\"(?<currentValue>[^\"]+)\",\\s*\"sha\":\\s*\"(?<currentDigest>[0-9a-f]{40})\""
+      ],
+      "depNameTemplate": "{{{packageName}}}",
+      "datasourceTemplate": "git-refs"
+    }
+  ]
+}
