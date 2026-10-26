@@ -60,7 +60,7 @@ Web フロントエンド開発用。
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | design-taste-frontend（v2） | MIT |
 | `frontend-design` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | frontend-design | Apache-2.0 |
 | `web-artifacts-builder` | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder) | web-artifacts-builder | Apache-2.0 |
-| `transitions-dev` | [Jakubantalik/transitions.dev](https://github.com/Jakubantalik/transitions.dev) | transitions-dev, transitions-polish | 表記なし |
+| `transitions-dev` | [Jakubantalik/transitions.dev](https://github.com/Jakubantalik/transitions.dev) | transitions-dev, transitions-polish | Transitions.dev License（独自） |
 | `apple-design` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/apple-design) | apple-design | MIT |
 | `emil-design-eng` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng) | emil-design-eng | MIT |
 | `web-quality-skills` | [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills) | accessibility, best-practices, core-web-vitals, performance, seo, web-quality-audit | MIT |
