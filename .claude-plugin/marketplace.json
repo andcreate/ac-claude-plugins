@@ -158,7 +158,7 @@
         "url": "https://github.com/emilkowalski/skills.git",
         "path": "skills/apple-design",
         "ref": "main",
-        "sha": "85e8e2363b713506e1d5b6e07a0eb2da66be1bc3"
+        "sha": "2d228630ba1446365f614a108cb8252f1feda202"
       },
       "description": "Apple 流のインターフェースと物理的なモーション（ジェスチャー、スプリング、シート、素材感）を Web に移すスキル",
       "homepage": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
@@ -172,7 +172,7 @@
         "url": "https://github.com/emilkowalski/skills.git",
         "path": "skills/emil-design-eng",
         "ref": "main",
-        "sha": "85e8e2363b713506e1d5b6e07a0eb2da66be1bc3"
+        "sha": "2d228630ba1446365f614a108cb8252f1feda202"
       },
       "description": "Emil Kowalski の UI の磨き込み・コンポーネント設計・アニメーション判断の考え方をまとめたスキル",
       "homepage": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
