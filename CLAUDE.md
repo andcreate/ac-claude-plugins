@@ -14,4 +14,4 @@ Renovate は `sha` を上げるだけなので、PR のブランチで次を行�
 2. 同じリポジトリを参照するエントリ（anthropics/skills、emilkowalski/skills など）は同じ `sha` にそろえる。
 3. 上流の構成に合わせて、`skills` の列挙・`description`・README の表を直す。
 4. `claude plugin validate . --strict` と `claude plugin validate plugins/<bundle> --strict` を通す。
-5. 使い捨てプロジェクトで `claude plugin marketplace add <このリポジトリのパス> --scope project` → `claude plugin install <bundle>@ac-claude-plugins --scope project` → `claude -p` でスキル一覧を出し、期待どおりのスキルだけが入るか確かめる。終わったら `uninstall --prune` と `marketplace remove` で片付ける。
+5. 使い捨てプロジェクトで `claude plugin marketplace add <このリポジトリのパス> --scope project` → `claude plugin install <bundle>@ac-claude-plugins --scope project` → `claude -p` でスキル一覧を出し、期待どおりのスキルだけが入るか確かめる。終わったら `uninstall --prune` で片付け、`claude plugin marketplace add https://github.com/andcreate/ac-claude-plugins.git` で登録を GitHub に戻す。マーケットプレイスの登録はマシン全体で名前ごとに 1 件なので、ローカルパスで add したままや `marketplace remove` で終えると、実プロジェクトから使えなくなる。
