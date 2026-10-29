@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Web フロントエンド用のバンドル。自身はスキルを持たず、dependencies だけを宣言する",
   "author": {
     "name": "andcreate"
@@ -9,12 +9,11 @@
   "dependencies": [
     "ui-ux-pro-max",
     "taste-skill",
-    "frontend-design",
+    "impeccable",
     "web-artifacts-builder",
     "transitions-dev",
     "apple-design",
     "emil-design-eng",
-    "web-quality-skills",
-    "design-review"
+    "web-quality-skills"
   ]
 }
