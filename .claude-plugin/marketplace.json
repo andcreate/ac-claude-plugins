@@ -124,6 +124,20 @@
       "category": "design"
     },
     {
+      "name": "impeccable-hooks",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/pbakaus/impeccable.git",
+        "path": "plugin",
+        "ref": "main",
+        "sha": "5e745ace7e151feb2a93d360d0281fe39448b857"
+      },
+      "description": "【任意】impeccable の上流プラグイン一式（スキル・サブエージェント 4 つ・検出 hook）。スキルは impeccable と同じ名前空間なので、バンドルと併用しても二重にならない。UI ファイルの Edit / Write のたびと応答の終了時に、モデルの承認を経ずに検出器が走る。バンドルには含まれない",
+      "homepage": "https://github.com/pbakaus/impeccable",
+      "license": "Apache-2.0",
+      "category": "design"
+    },
+    {
       "name": "web-artifacts-builder",
       "source": {
         "source": "git-subdir",

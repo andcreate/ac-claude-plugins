@@ -64,6 +64,13 @@ Web フロントエンド開発用。
 | `apple-design` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/apple-design) | apple-design | MIT |
 | `emil-design-eng` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng) | emil-design-eng | MIT |
 | `web-quality-skills` | [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills) | accessibility, best-practices, core-web-vitals, performance, seo, web-quality-audit | MIT |
+
+UI ファイルを編集するたびに impeccable の検出器を自動で走らせたいプロジェクトでは、バンドルに加えて `impeccable-hooks` を入れます。hook はモデルの承認を経ずに動き、初回にエンジンのバイナリを GitHub Releases から取得します。
+
+```bash
+claude plugin install impeccable-hooks@ac-claude-plugins --scope project
+```
+
 ### `wordpress`
 
 WordPress 開発用（クラシックテーマ、ブロックテーマ、プラグイン開発、Docker での開発環境）。
