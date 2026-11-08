@@ -25,7 +25,7 @@
         "url": "https://github.com/WordPress/agent-skills.git",
         "path": "skills",
         "ref": "trunk",
-        "sha": "eff3785fc28c4380d172094518c66a6a997c95d4"
+        "sha": "7374e6f1c913b3b02b25465d266d9c0e0a04fc96"
       },
       "strict": false,
       "skills": [
