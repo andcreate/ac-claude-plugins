@@ -112,7 +112,7 @@
         "url": "https://github.com/pbakaus/impeccable.git",
         "path": "plugin/skills",
         "ref": "main",
-        "sha": "5e745ace7e151feb2a93d360d0281fe39448b857"
+        "sha": "1995764b4936f2bfbf4eb719cb37b384a45ceacb"
       },
       "strict": false,
       "skills": [
@@ -130,7 +130,7 @@
         "url": "https://github.com/pbakaus/impeccable.git",
         "path": "plugin",
         "ref": "main",
-        "sha": "5e745ace7e151feb2a93d360d0281fe39448b857"
+        "sha": "1995764b4936f2bfbf4eb719cb37b384a45ceacb"
       },
       "description": "【任意】impeccable の上流プラグイン一式（スキル・サブエージェント 4 つ・検出 hook）。スキルは impeccable と同じ名前空間なので、バンドルと併用しても二重にならない。UI ファイルの Edit / Write のたびと応答の終了時に、モデルの承認を経ずに検出器が走る。バンドルには含まれない",
       "homepage": "https://github.com/pbakaus/impeccable",
