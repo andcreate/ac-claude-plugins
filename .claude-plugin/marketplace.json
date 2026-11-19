@@ -60,7 +60,7 @@
         "url": "https://github.com/docker/skills.git",
         "path": "skills",
         "ref": "main",
-        "sha": "179c9cfd04c89ae50cd5d5d68b939797a8fd03d3"
+        "sha": "caeee2024f7527d890a29dd1732b62a112f56d0e"
       },
       "strict": false,
       "skills": [
