@@ -74,7 +74,7 @@ WordPress 開発用（クラシックテーマ、ブロックテーマ、プラ�
 
 | プラグイン | 上流 | 入るスキル | ライセンス |
 | :-- | :-- | :-- | :-- |
-| `wp-agent-skills` | [WordPress/agent-skills](https://github.com/WordPress/agent-skills) | wp-plugin-directory-guidelines を除く 18 スキル | GPL-2.0-or-later |
+| `wp-agent-skills` | [WordPress/agent-skills](https://github.com/WordPress/agent-skills) | wp-plugin-directory-guidelines を除く 19 スキル | GPL-2.0-or-later |
 | `docker-skills` | [docker/skills](https://github.com/docker/skills) | docker-project-foundations, docker-compose-patterns, docker-build-strategies, docker-destructive-guardrails | Apache-2.0 |
 
 ## 参照したドキュメント

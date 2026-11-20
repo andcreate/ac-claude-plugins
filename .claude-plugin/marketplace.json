@@ -25,7 +25,7 @@
         "url": "https://github.com/WordPress/agent-skills.git",
         "path": "skills",
         "ref": "trunk",
-        "sha": "eff3785fc28c4380d172094518c66a6a997c95d4"
+        "sha": "7374e6f1c913b3b02b25465d266d9c0e0a04fc96"
       },
       "strict": false,
       "skills": [
@@ -39,6 +39,7 @@
         "./wpds",
         "./wp-rest-api",
         "./wp-abilities-api",
+        "./wp-ability-development",
         "./wp-abilities-audit",
         "./wp-abilities-verify",
         "./wp-wpcli-and-ops",
@@ -48,7 +49,7 @@
         "./wp-playground",
         "./blueprint"
       ],
-      "description": "WordPress 公式スキル（ブロック・テーマ・プラグイン開発・REST API・WP-CLI・PHPStan・パフォーマンスなど 18 スキル）。wordpress.org 公開向けの wp-plugin-directory-guidelines は除外",
+      "description": "WordPress 公式スキル（ブロック・テーマ・プラグイン開発・REST API・WP-CLI・PHPStan・パフォーマンスなど 19 スキル）。wordpress.org 公開向けの wp-plugin-directory-guidelines は除外",
       "homepage": "https://github.com/WordPress/agent-skills",
       "license": "GPL-2.0-or-later",
       "category": "wordpress"
@@ -60,7 +61,7 @@
         "url": "https://github.com/docker/skills.git",
         "path": "skills",
         "ref": "main",
-        "sha": "179c9cfd04c89ae50cd5d5d68b939797a8fd03d3"
+        "sha": "caeee2024f7527d890a29dd1732b62a112f56d0e"
       },
       "strict": false,
       "skills": [
@@ -80,7 +81,7 @@
         "source": "url",
         "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
         "ref": "main",
-        "sha": "d14efff8ed1faa4187f004f79926f428c8074ec7"
+        "sha": "2de1134dc4d1cfe112934611ae5803ae17a1bd7e"
       },
       "description": "UI/UX デザインの知識ベース（スタイル・配色・フォント・チャート・スタック別ガイドライン）。ui-ux-pro-max / design / design-system / ui-styling / brand / banner-design / slides の 7 スキル",
       "homepage": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
@@ -144,7 +145,7 @@
         "url": "https://github.com/emilkowalski/skills.git",
         "path": "skills/emil-design-eng",
         "ref": "main",
-        "sha": "2d228630ba1446365f614a108cb8252f1feda202"
+        "sha": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c"
       },
       "description": "Emil Kowalski の UI の磨き込み・コンポーネント設計・アニメーション判断の考え方をまとめたスキル",
       "homepage": "https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng",
