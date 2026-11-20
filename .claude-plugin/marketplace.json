@@ -95,13 +95,13 @@
         "url": "https://github.com/Leonxlnx/taste-skill.git",
         "path": "skills",
         "ref": "main",
-        "sha": "12af471f627f866411b4bd785b19646d3672784c"
+        "sha": "f6b76575f949707b4e3c37cd86cb44b0b98643e8"
       },
       "strict": false,
       "skills": [
         "./taste-skill"
       ],
-      "description": "taste-skill v2（design-taste-frontend）。Web ページやアプリ画面のアートディレクション、実ブラウザでの検査、公開コレクションからの画像取得を行う。スクリプトの実行に Node 22 以上と Chrome / Edge が必要",
+      "description": "taste-skill 2.5.1（design-taste-frontend）。会社や店の Web サイトを作り、実ブラウザで検査する。写真は Wikimedia Commons と picsum.photos、アイコンは jsDelivr、地図は OpenStreetMap の Overpass から取得する。スキルを呼ぶと Stop hook が入り、検査が通るまで応答の終了を止めることがある（回数に上限あり）。スクリプトの実行に Node 22 以上と Chrome / Edge / Chromium が必要",
       "homepage": "https://github.com/Leonxlnx/taste-skill",
       "license": "MIT",
       "category": "design"
@@ -113,7 +113,7 @@
         "url": "https://github.com/pbakaus/impeccable.git",
         "path": "plugin/skills",
         "ref": "main",
-        "sha": "5e745ace7e151feb2a93d360d0281fe39448b857"
+        "sha": "b49177d32788f2dc585c42831d845dacf1ebed2c"
       },
       "strict": false,
       "skills": [
@@ -131,9 +131,9 @@
         "url": "https://github.com/pbakaus/impeccable.git",
         "path": "plugin",
         "ref": "main",
-        "sha": "5e745ace7e151feb2a93d360d0281fe39448b857"
+        "sha": "b49177d32788f2dc585c42831d845dacf1ebed2c"
       },
-      "description": "【任意】impeccable の上流プラグイン一式（スキル・サブエージェント 4 つ・検出 hook）。スキルは impeccable と同じ名前空間なので、バンドルと併用しても二重にならない。UI ファイルの Edit / Write のたびと応答の終了時に、モデルの承認を経ずに検出器が走る。バンドルには含まれない",
+      "description": "【任意】impeccable の上流プラグイン一式（スキル・サブエージェント 5 つ・検出 hook）。スキルは impeccable と同じ名前空間なので、バンドルと併用しても二重にならない。UI ファイルの Edit / Write のたびと応答の終了時に、モデルの承認を経ずに検出器が走る。サブエージェントのうち 3 つは MCP を含むすべてのツールを使える。バンドルには含まれない",
       "homepage": "https://github.com/pbakaus/impeccable",
       "license": "Apache-2.0",
       "category": "design"
