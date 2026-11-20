@@ -34,5 +34,63 @@
       "license": "MIT",
       "category": "quality"
     }
+  },
+  {
+    "retired": "2026-11-20",
+    "replacedBy": null,
+    "entry": {
+      "name": "web-artifacts-builder",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/skills.git",
+        "path": "skills/web-artifacts-builder",
+        "ref": "main",
+        "sha": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
+      },
+      "description": "Anthropic 公式。React / Tailwind / shadcn/ui で複数コンポーネントの claude.ai HTML アーティファクトを作るスキル",
+      "homepage": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+      "license": "Apache-2.0",
+      "category": "design"
+    }
+  },
+  {
+    "retired": "2026-11-20",
+    "replacedBy": null,
+    "entry": {
+      "name": "transitions-dev",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jakubantalik/transitions.dev.git",
+        "path": "skills",
+        "ref": "main",
+        "sha": "6a7d68260d624eb66661cc3af17e0989476f48ae"
+      },
+      "strict": false,
+      "skills": [
+        "./transitions-dev",
+        "./transitions-polish"
+      ],
+      "description": "Web アプリ向けの CSS トランジション集（transitions-dev）と、既存モーションをトークンに沿って整える transitions-polish の 2 スキル",
+      "homepage": "https://github.com/Jakubantalik/transitions.dev",
+      "category": "motion"
+    }
+  },
+  {
+    "retired": "2026-11-20",
+    "replacedBy": "emil-design-eng",
+    "entry": {
+      "name": "apple-design",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/emilkowalski/skills.git",
+        "path": "skills/apple-design",
+        "ref": "main",
+        "sha": "2d228630ba1446365f614a108cb8252f1feda202"
+      },
+      "description": "Apple 流のインターフェースと物理的なモーション（ジェスチャー、スプリング、シート、素材感）を Web に移すスキル",
+      "homepage": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+      "license": "MIT",
+      "category": "motion"
+    }
   }
 ]
