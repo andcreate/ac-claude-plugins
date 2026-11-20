@@ -119,7 +119,7 @@
       "skills": [
         "./impeccable"
       ],
-      "description": "UI の設計・講評・監査・磨き込みを 24 のコマンド（shape / critique / audit / polish / animate など）で行うスキル。上流の hook とサブエージェントは除外。初回実行時に検出エンジンのバイナリを GitHub Releases から ~/.impeccable/bin/ に取得する（チェックサム検証あり）",
+      "description": "UI の設計・講評・監査・磨き込みを 24 のコマンド（shape / critique / audit / polish / animate など）で行うスキル。上流の hook とサブエージェントは除外。初回実行時に検出エンジンのバイナリを GitHub Releases から ~/.impeccable/bin/ に取得する（チェックサム検証あり）。新しいデザインを始めるときに impeccable.style のカタログを取得し、表示と選択を匿名で記録する（記録は環境変数 DO_NOT_TRACK=1 で止まる）",
       "homepage": "https://github.com/pbakaus/impeccable",
       "license": "Apache-2.0",
       "category": "design"

@@ -62,6 +62,18 @@ Web フロントエンド開発用。
 | `emil-design-eng` | [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills/emil-design-eng) | emil-design-eng | MIT |
 | `web-quality-skills` | [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills) | accessibility, best-practices, core-web-vitals, performance, seo, web-quality-audit | MIT |
 
+impeccable は新しいデザインを始めるときに impeccable.style のカタログからデザインの方向性を取得し、どれが表示されどれを選んだかを匿名で記録します。記録を止めるには、`~/.claude/settings.json`（プロジェクトで共有するなら `.claude/settings.json`）の `env` に `DO_NOT_TRACK` を設定します。カタログの取得は止まりません。`DO_NOT_TRACK` は Claude Code 自身のテレメトリも止めます。
+
+```json
+{
+  "env": {
+    "DO_NOT_TRACK": "1"
+  }
+}
+```
+
+impeccable の記録だけを止めるなら、`~/.impeccable/config.json` に `{ "telemetry": false }` を書きます。
+
 UI ファイルを編集するたびに impeccable の検出器を自動で走らせたいプロジェクトでは、バンドルに加えて `impeccable-hooks` を入れます。hook はモデルの承認を経ずに動き、初回にエンジンのバイナリを GitHub Releases から取得します。
 
 ```bash
